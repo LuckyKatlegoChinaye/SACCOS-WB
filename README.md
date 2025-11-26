@@ -1,2 +1,0 @@
-# SACCOS-WB
-TESTING
