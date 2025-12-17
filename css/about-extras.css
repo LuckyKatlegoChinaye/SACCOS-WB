@@ -1,0 +1,52 @@
+/* Styles moved from about.html for better maintainability */
+
+/* Member card styling for About page */
+.member-card { background: #fff; border-radius: 8px; box-shadow: 0 6px 18px rgba(0,0,0,0.06); padding: 12px; display:flex; align-items:center; }
+.member-icon { inline-size:56px; block-size:56px; border-radius:50%; background:#222; display:flex; align-items:center; justify-content:center; flex:0 0 56px; }
+.member-icon svg { inline-size:28px; block-size:28px; fill:#fff; }
+.member-info { margin-inline-start:12px; }
+.member-name { font-weight:700; margin:0; font-size:15px; }
+.member-role { color:#777; font-size:13px; margin:0; }
+.committee-grid { gap:12px; display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+/* Clean, reusable classes to avoid inline styles */
+.committee-heading { color: #f86f2d; margin-block-end: 15px; font-size:18px; }
+.member-card-full { inline-size: 100%; }
+.committee-grid .member-card { padding: 12px; transition: transform .16s ease, box-shadow .16s ease; }
+.committee-grid .member-card:hover { transform: translateY(-4px); box-shadow: 0 10px 26px rgba(0,0,0,0.08); }
+.member-role small { color: #666; }
+/* About page visual utilities */
+.navbar-brand img { block-size: 40px; margin-inline-end: 10px; }
+.about-image { inline-size: 100%; box-shadow: 0 8px 20px rgba(0,0,0,0.06); object-fit: cover; border-radius: .25rem; }
+.about-lead { color: #333; font-size: 18px; }
+.about-cta { margin-block-start: 18px; display:flex; gap:12px; flex-wrap:wrap; align-items:center; }
+.btn-accent { background: linear-gradient(135deg, #f86f2d, #d97d2f); color: #fff; border: none; padding: 10px 18px; border-radius: 6px; font-weight:600; display:inline-flex; align-items:center; gap:8px; }
+.btn-outline-accent { background: #fff; color: #f86f2d; border: 2px solid #f86f2d; padding: 10px 18px; border-radius: 6px; font-weight:600; }
+
+/* Loader fade helper */
+#ftco-loader { transition: opacity 450ms ease, visibility 450ms ease; }
+#ftco-loader.show { opacity: 1; visibility: visible; }
+#ftco-loader.fade-out { opacity: 0; visibility: hidden; }
+
+/* Chevron icon for CTA */
+.chev { display:inline-block; transition: transform 300ms ease; font-size:14px; }
+/* Rotate when parent is revealed by AOS */
+.about-cta[data-aos].aos-animate .chev { transform: translateY(2px) rotate(180deg); }
+/* Subtle hover on button */
+.btn-accent:hover .chev { transform: translateY(1px) rotate(180deg); }
+
+/* Small utilities */
+.ftco-animate { will-change: transform, opacity; }
+
+/* Section icons (orange) used next to headings */
+.section-icon { display:inline-flex; align-items:center; justify-content:center; inline-size:28px; block-size:28px; margin-inline-end:10px; color: #f86f2d; flex: 0 0 28px; }
+.section-icon svg { inline-size:20px; block-size:20px; fill: currentColor; }
+
+/* Dropdown menu item hover effect (orange) */
+.dropdown-menu .dropdown-item { transition: background-color 200ms ease, color 200ms ease; }
+.dropdown-menu .dropdown-item:hover { background-color: #f86f2d; color: #fff; }
+.dropdown-menu .dropdown-item:focus { background-color: #f86f2d; color: #fff; }
+
+/* Logical property example replacements */
+.member-info { margin-inline-start: 12px; }
+
+/* End of about-extras.css */

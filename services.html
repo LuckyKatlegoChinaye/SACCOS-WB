@@ -26,12 +26,240 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
+    <!-- Favicons (32x32 primary) -->
+    <link rel="icon" type="image/png" href="images/favicon/favicon-32x32.png" sizes="32x32">
+    <link rel="shortcut icon" href="images/favicon/favicon-32x32.png">
+    <link rel="apple-touch-icon" href="images/favicon/apple-touch-icon.png" sizes="180x180">
+    <link rel="manifest" href="images/favicon/site.webmanifest">
+    <meta name="msapplication-TileImage" content="images/favicon/android-chrome-192x192.png">
+    <meta name="theme-color" content="#c05a1f">
+    <style>
+      .loan-card {
+        background: #fff;
+        border: 2px solid #e8e8e8;
+        border-radius: 16px;
+        padding: 45px 35px;
+        height: 100%;
+        transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
+      }
+
+      .loan-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(90deg, #f86f2d, #e65c1f);
+        transition: left 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+        box-shadow: 0 2px 8px rgba(248, 111, 45, 0.3);
+      }
+
+      .loan-card::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 1px;
+        height: 100%;
+        background: linear-gradient(180deg, rgba(248, 111, 45, 0.2) 0%, transparent 100%);
+      }
+
+      .loan-card:hover::before {
+        left: 0;
+      }
+
+      .loan-card:hover {
+        transform: translateY(-14px);
+        box-shadow: 0 16px 40px rgba(248, 111, 45, 0.12);
+        border-color: #f86f2d;
+        background: linear-gradient(135deg, #fff9f6 0%, #ffffff 100%);
+      }
+
+      .loan-card-icon {
+        margin-bottom: 24px;
+        display: inline-block;
+        transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+      }
+
+      .loan-card-icon svg {
+        width: 64px;
+        height: 64px;
+        display: block;
+        filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.08));
+        transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+      }
+
+      .loan-card:hover .loan-card-icon svg {
+        transform: scale(1.18) rotate(8deg);
+        filter: drop-shadow(0 8px 16px rgba(248, 111, 45, 0.28));
+      }
+
+      .loan-card h4 {
+        font-size: 22px;
+        font-weight: 700;
+        color: #222;
+        margin-bottom: 24px;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        line-height: 1.3;
+        letter-spacing: -0.3px;
+      }
+
+      .loan-card h4 .title-accent {
+        width: 5px;
+        height: 28px;
+        background: linear-gradient(180deg, #f86f2d, #e65c1f);
+        border-radius: 3px;
+        margin-right: 14px;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 6px rgba(248, 111, 45, 0.3);
+      }
+
+      .loan-card:hover h4 .title-accent {
+        width: 7px;
+        height: 32px;
+        box-shadow: 0 4px 12px rgba(248, 111, 45, 0.4);
+      }
+
+      .loan-card:hover h4 {
+        color: #f86f2d;
+        transform: translateX(2px);
+      }
+
+      /* Clean list layout for loan cards */
+      .loan-card ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        flex-grow: 1;
+      }
+
+      /* Each row shows the label and value aligned nicely without bullets */
+      .loan-card li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0 !important;
+        border-bottom: 1px solid rgba(242,242,242,0.9);
+        font-size: 15px;
+        line-height: 1.4;
+        color: #555;
+        transition: color 0.15s ease, transform 0.15s ease;
+      }
+
+      /* Remove decorative pseudo bullets (we rely on clean rows and the accent color instead) */
+      .loan-card li::before {
+        display: none;
+      }
+
+      .loan-card li:last-child {
+        border-bottom: none;
+        padding-bottom: 0 !important;
+      }
+
+      .loan-card:hover li {
+        color: #333;
+      }
+
+      .loan-card li strong {
+        color: #f86f2d;
+        font-weight: 700;
+        display: inline-block;
+        min-width: 120px;
+        margin-right: 12px;
+      }
+
+      .loan-card li .value {
+        color: #333;
+        font-weight: 600;
+      }
+
+      /* Badge positioned in the top-right corner for a neat, modern look */
+      .card-badge {
+        position: absolute;
+        top: 18px;
+        right: 18px;
+        background: linear-gradient(135deg, #f86f2d 0%, #e65c1f 100%);
+        color: #fff;
+        padding: 6px 12px;
+        border-radius: 18px;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        opacity: 0.95;
+        box-shadow: 0 8px 22px rgba(232, 102, 45, 0.14);
+      }
+
+      @media (max-width: 768px) {
+        .loan-card {
+          padding: 35px 25px;
+          margin-bottom: 24px;
+          border-radius: 14px;
+        }
+
+        .loan-card:hover {
+          transform: translateY(-10px);
+        }
+
+        .loan-card-icon svg {
+          width: 56px;
+          height: 56px;
+        }
+
+        .loan-card h4 {
+          font-size: 20px;
+          margin-bottom: 20px;
+        }
+
+        .loan-card li {
+          padding: 14px 0 !important;
+          font-size: 14px;
+        }
+
+        .card-badge {
+          padding: 6px 14px;
+          font-size: 11px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .loan-card {
+          padding: 28px 20px;
+        }
+
+        .loan-card h4 {
+          font-size: 18px;
+        }
+
+        .loan-card h4 .title-accent {
+          width: 4px;
+          height: 24px;
+          margin-right: 10px;
+        }
+
+        .loan-card li strong {
+          min-width: 100px;
+        }
+      }
+    </style>
   </head>
   <body>
     
   <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-      <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="Ditswammung SACCOS" style="height: 40px; margin-right: 10px;">Ditswammung SACCOS</a>
+      <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="Ditswammung SACCOS" style="height: 80px; margin-right: 15px;">Ditswammung SACCOS</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="oi oi-menu"></span> Menu
       </button>
@@ -40,17 +268,25 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
           <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-          <li class="nav-item active"><a href="services.html" class="nav-link">Services</a></li>
+          <li class="nav-item active dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Services</a>
+            <div class="dropdown-menu" aria-labelledby="servicesDropdown">
+              <a class="dropdown-item" href="services.html">Core Services</a>
+              <a class="dropdown-item" href="pricing.html">Savings and Investments</a>
+              <a class="dropdown-item" href="loans.html">Loans</a>
+            </div>
+          </li>
           <li class="nav-item"><a href="team.html" class="nav-link">Team</a></li>
           <li class="nav-item"><a href="portfolio.html" class="nav-link">Portfolio</a></li>
           <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+          <li class="nav-item"><a href="https://coopmis.co.bw/Landing/Index/" class="btn btn-warning" style="background-color: #f86f2d; color: white; font-weight: bold; border: none; margin-left: 10px;" target="_blank">Members Login</a></li>
         </ul>
       </div>
     </div>
   </nav>
     <!-- END nav -->
     
-    <div class="hero-wrap" style="background-image: url('images/slide/slide-2.jpg');" data-stellar-background-ratio="0.5">
+    <div class="hero-wrap" style="background-image: url('images/slide/core services.png');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
@@ -68,15 +304,11 @@
       	<div class="row">
       		<div class="col-md-4 ftco-animate">
       			<div class="cause-entry">
-    					<a href="#" class="img" style="background-image: url(images/portfolio/portfolio-1.jpg);"></a>
+              <a href="#" class="img" style="background-image: url(images/img2/IMG_0249.JPG);"></a>
     					<div class="text p-3 p-md-4">
     						<h3><a href="#">Savings Plans</a></h3>
     						<p>Flexible and secure savings schemes designed to help you grow your wealth with competitive returns and full member protection.</p>
     						<span class="donation-time mb-3 d-block">Safe & Secure</span>
-                <div class="progress custom-progress-success">
-                  <div class="progress-bar bg-primary" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <span class="fund-raised d-block">Member Satisfaction: 85%</span>
     					</div>
     				</div>
       		</div>
@@ -87,10 +319,6 @@
     						<h3><a href="#">Credit Facilities</a></h3>
     						<p>Affordable and accessible loans for personal, business, and emergency needs with favorable interest rates.</p>
     						<span class="donation-time mb-3 d-block">Quick Processing</span>
-                <div class="progress custom-progress-success">
-                  <div class="progress-bar bg-primary" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <span class="fund-raised d-block">Members Supported: 90%</span>
     					</div>
     				</div>
       		</div>
@@ -101,38 +329,6 @@
     						<h3><a href="#">Financial Education</a></h3>
     						<p>Comprehensive training programs on budgeting, investment strategies, and financial literacy for all members.</p>
     						<span class="donation-time mb-3 d-block">Empowering Members</span>
-                <div class="progress custom-progress-success">
-                  <div class="progress-bar bg-primary" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <span class="fund-raised d-block">Training Completion: 80%</span>
-    					</div>
-    				</div>
-      		</div>
-      		<div class="col-md-4 ftco-animate">
-      			<div class="cause-entry">
-    					<a href="#" class="img" style="background-image: url(images/portfolio/portfolio-4.jpg);"></a>
-    					<div class="text p-3 p-md-4">
-    						<h3><a href="#">Agricultural Support</a></h3>
-    						<p>Specialized credit and advisory services to support agricultural development and sustainable farming practices.</p>
-    						<span class="donation-time mb-3 d-block">Supporting Farmers</span>
-                <div class="progress custom-progress-success">
-                  <div class="progress-bar bg-primary" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <span class="fund-raised d-block">Farmers Assisted: 75%</span>
-    					</div>
-    				</div>
-      		</div>
-      		<div class="col-md-4 ftco-animate">
-      			<div class="cause-entry">
-    					<a href="#" class="img" style="background-image: url(images/portfolio/portfolio-5.jpg);"></a>
-    					<div class="text p-3 p-md-4">
-    						<h3><a href="#">Business Loans</a></h3>
-    						<p>Dedicated financing solutions for entrepreneurs and small business owners to start and expand their ventures.</p>
-    						<span class="donation-time mb-3 d-block">Growing Businesses</span>
-                <div class="progress custom-progress-success">
-                  <div class="progress-bar bg-primary" role="progressbar" style="width: 82%" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <span class="fund-raised d-block">Entrepreneurs Supported: 82%</span>
     					</div>
     				</div>
       		</div>
@@ -143,42 +339,143 @@
     						<h3><a href="#">Member Benefits</a></h3>
     						<p>Exclusive perks including insurance coverage, dividends, and special services for valued cooperative members.</p>
     						<span class="donation-time mb-3 d-block">Premium Services</span>
-                <div class="progress custom-progress-success">
-                  <div class="progress-bar bg-primary" role="progressbar" style="width: 88%" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <span class="fund-raised d-block">Benefits Utilization: 88%</span>
-    					</div>
-    				</div>
       		</div>
+      		</div>
+      	</div>
+      	</div>
+    </section>
+
+    <section class="ftco-section">
+      <div class="container">
+        <div class="row justify-content-center mb-5 pb-3">
+          <div class="col-md-7 heading-section ftco-animate text-center">
+            <h2 class="mb-4">Loan Products & Terms</h2>
+            <p>Choose from our diverse range of credit facilities designed to meet your specific financial needs with favorable terms.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="0">
+            <div class="loan-card">
+              <div class="loan-card-icon">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="8" y="12" width="48" height="40" rx="4" stroke="#f86f2d" stroke-width="2.5"/>
+                  <path d="M32 24V40M26 34H38" stroke="#f86f2d" stroke-width="2.5" stroke-linecap="round"/>
+                  <circle cx="20" cy="8" r="3" fill="#f86f2d"/>
+                  <circle cx="44" cy="8" r="3" fill="#f86f2d"/>
+                </svg>
+              </div>
+              <h4><span class="title-accent"></span>Normal/Ordinary Loan</h4>
+              <ul>
+                <li><strong>Maximum Amount</strong> P 400,000.00</li>
+                <li><strong>Duration</strong> Up to 120 months</li>
+                <li><strong>Features</strong> Re-financing available</li>
+                <li><strong>Best For</strong> Large purchases, investments</li>
+              </ul>
+              <span class="card-badge">Popular</span>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            <div class="loan-card">
+              <div class="loan-card-icon">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M16 48C16 46.9 16.9 46 18 46H46C47.1 46 48 46.9 48 48C48 49.1 47.1 50 46 50H18C16.9 50 16 49.1 16 48Z" fill="#f86f2d"/>
+                  <path d="M32 14L48 28H16L32 14Z" fill="#f86f2d" opacity="0.8"/>
+                  <path d="M28 28V42M32 28V42M36 28V42" stroke="#f86f2d" stroke-width="2" stroke-linecap="round" stroke-opacity="0.6"/>
+                </svg>
+              </div>
+              <h4><span class="title-accent"></span>Short Term Loan</h4>
+              <ul>
+                <li><strong>Maximum Amount</strong> P 80,000.00</li>
+                <li><strong>Duration</strong> Up to 36 months</li>
+                <li><strong>Features</strong> Quick approval, Re-financing</li>
+                <li><strong>Best For</strong> Medium-term needs</li>
+              </ul>
+              <span class="card-badge">Quick</span>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+            <div class="loan-card">
+              <div class="loan-card-icon">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="32" cy="32" r="24" stroke="#f86f2d" stroke-width="2.5"/>
+                  <path d="M32 18V46M18 32H46" stroke="#f86f2d" stroke-width="2.5" stroke-linecap="round"/>
+                  <circle cx="32" cy="32" r="6" fill="#f86f2d" opacity="0.3"/>
+                </svg>
+              </div>
+              <h4><span class="title-accent"></span>Emergency Loan</h4>
+              <ul>
+                <li><strong>Maximum Amount</strong> P 30,000.00</li>
+                <li><strong>Duration</strong> Up to 24 months</li>
+                <li><strong>Features</strong> Fast processing, Re-financing</li>
+                <li><strong>Best For</strong> Urgent expenses</li>
+              </ul>
+              <span class="card-badge">Fastest</span>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
+            <div class="loan-card">
+              <div class="loan-card-icon">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M16 40H48V48H16Z" stroke="#f86f2d" stroke-width="2.5" stroke-linejoin="round"/>
+                  <path d="M20 24H44V40H20Z" stroke="#f86f2d" stroke-width="2.5" stroke-linejoin="round"/>
+                  <path d="M32 16L44 24H20L32 16Z" stroke="#f86f2d" stroke-width="2.5" stroke-linejoin="round"/>
+                  <path d="M28 32V36M36 32V36" stroke="#f86f2d" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <h4><span class="title-accent"></span>Home Improvement Loan</h4>
+              <ul>
+                <li><strong>Maximum Amount</strong> P 20,000.00</li>
+                <li><strong>Duration</strong> Up to 36 months</li>
+                <li><strong>Features</strong> Re-financing available during term</li>
+                <li><strong>Best For</strong> Home upgrades, renovations</li>
+              </ul>
+              <span class="card-badge">Home Focused</span>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
+            <div class="loan-card">
+              <div class="loan-card-icon">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="24" cy="20" r="8" stroke="#f86f2d" stroke-width="2.5"/>
+                  <path d="M16 32H32V46H16Z" stroke="#f86f2d" stroke-width="2.5" stroke-linejoin="round"/>
+                  <circle cx="40" cy="20" r="8" stroke="#f86f2d" stroke-width="2.5"/>
+                  <path d="M32 32H48V46H32Z" stroke="#f86f2d" stroke-width="2.5" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <h4><span class="title-accent"></span>Coop Advance Loan</h4>
+              <ul>
+                <li><strong>Maximum Amount</strong> P 30,000.00</li>
+                <li><strong>Duration</strong> Up to 12 months</li>
+                <li><strong>Features</strong> Member-exclusive</li>
+                <li><strong>Best For</strong> Quick member advances. Best for school fees.</li>
+              </ul>
+              <span class="card-badge">Members Only</span>
+            </div>
+          </div>
+          <!-- Salary Advance removed per request -->
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="600">
+            <div class="loan-card">
+              <div class="loan-card-icon">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="32" cy="32" r="20" stroke="#f86f2d" stroke-width="2.5"/>
+                  <path d="M32 22V42M22 32H42" stroke="#f86f2d" stroke-width="2" stroke-linecap="round"/>
+                  <circle cx="32" cy="32" r="12" stroke="#f86f2d" stroke-width="1.5" stroke-dasharray="4 2" opacity="0.5"/>
+                </svg>
+              </div>
+              <h4><span class="title-accent"></span>Quick Loan</h4>
+              <ul>
+                <li><strong>Maximum Amount</strong> P 3,000.00</li>
+                <li><strong>Duration</strong> 1 month</li>
+                <li><strong>Features</strong> Instant processing</li>
+                <li><strong>Best For</strong> Immediate small needs</li>
+              </ul>
+              <span class="card-badge">Instant</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-	<section class="ftco-section-3 img" style="background: linear-gradient(135deg, rgba(248, 111, 45, 0.25) 0%, rgba(250, 143, 61, 0.25) 100%), url(images/ditswa.png); background-size: auto, 40%; background-position: center, center; background-repeat: repeat, no-repeat;">
-    	<div class="overlay"></div>
-    	<div class="container">
-    		<div class="row d-md-flex align-items-center justify-content-center">
-    		<div class="col-md-6 volunteer ftco-animate text-center">
-    			<h3 class="mb-3">Become a Member</h3>
-    			<form action="#" class="volunter-form">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Your Full Name">
-            </div>
-            <div class="form-group">
-              <input type="email" class="form-control" placeholder="Your Email Address">
-            </div>
-            <div class="form-group">
-              <textarea name="" id="" cols="30" rows="3" class="form-control" placeholder="Tell us about your interest in joining our cooperative..."></textarea>
-            </div>
-            <div class="form-group">
-              <input type="submit" value="Get More Information" class="btn btn-white py-3 px-5">
-            </div>
-          </form>
-    		</div>    			
-    		</div>
-    	</div>
-    </section>
-		
 
     <footer class="ftco-footer ftco-section img">
     	<div class="overlay"></div>
@@ -199,7 +496,7 @@
             <div class="ftco-footer-widget mb-4">
               <h2 class="ftco-heading-2">Latest News</h2>
               <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url(images/slide/slide-1.jpg);"></a>
+                <a class="blog-img mr-4" style="background-image: url(images/img2/IMG_0634.JPG);"></a>
                 <div class="text">
                   <h3 class="heading"><a href="#">Member Success Stories: Building Futures Together</a></h3>
                   <div class="meta">
@@ -210,7 +507,7 @@
                 </div>
               </div>
               <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url(images/slide/slide-2.jpg);"></a>
+                <a class="blog-img mr-4" style="background-image: url(images/img2/20220917_123610.jpg);"></a>
                 <div class="text">
                   <h3 class="heading"><a href="#">New Loan Products Designed for Your Needs</a></h3>
                   <div class="meta">
@@ -228,7 +525,7 @@
               <ul class="list-unstyled">
                 <li><a href="index.html" class="py-2 d-block">Home</a></li>
                 <li><a href="about.html" class="py-2 d-block">About Us</a></li>
-                <li><a href="membership.html" class="py-2 d-block">Membership</a></li>
+                <li><a href="loans.html" class="py-2 d-block">Loans</a></li>
                 <li><a href="services.html" class="py-2 d-block">Our Projects</a></li>
                 <li><a href="events.html" class="py-2 d-block">Events</a></li>
                 <li><a href="news.html" class="py-2 d-block">News</a></li>
@@ -237,22 +534,23 @@
           </div>
           <div class="col-md-3">
             <div class="ftco-footer-widget mb-4">
-            	<h2 class="ftco-heading-2">Contact Information</h2>
-            	<div class="block-23 mb-3">
-	              <ul>
-	                <li><span class="icon icon-map-marker"></span><span class="text">Plot No. 63016, DTCB<br>P/Bag 0074, Gaborone</span></li>
-                  <li><a href="tel:+267364963940"><span class="icon icon-phone"></span><span class="text">Tel: (+267) 3649639 /40</span></a></li>
-                  <li><a href="tel:+267395115 0"><span class="icon icon-phone"></span><span class="text">Fax: (+267) 3951150</span></a></li>
-                  <li><a href="mailto:emasebu@dtcb.co.bw"><span class="icon icon-envelope"></span><span class="text">emasebu@dtcb.co.bw</span></a></li>
-	              </ul>
-	            </div>
+              <h2 class="ftco-heading-2">Contact Information</h2>
+              <div class="block-23 mb-3">
+                <ul>
+                  <li><span class="icon icon-map-marker"></span><span class="text">Office: Plot No. 63016, Block 8, Gaborone</span></li>
+                  <li><span class="icon icon-building"></span><span class="text">Diamond Trading Company Botswana (DTCB)</span></li>
+                  <li><a href="tel:+26736496340"><span class="icon icon-phone"></span><span class="text">Tel: (+267) 3649639 /40</span></a></li>
+                  <li><a href="tel:+2673951150"><span class="icon icon-phone"></span><span class="text">Fax: (+267) 3951150</span></a></li>
+                  <li><a href="mailto:info@ditswammungsaccos.org.bw"><span class="icon icon-envelope"></span><span class="text">info@ditswammungsaccos.org.bw</span></a></li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-md-12 text-center">
 
-            <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> Ditswammung SACCOS. All rights reserved | Empowering Communities Through Cooperative Excellence</p>
+            <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> Ditswammung SACCOS. All rights reserved | Ditswammung SACCOS - Let's grow your wealth<br><span style="font-size: 12px; color: #999;">Design & Development by <a href="https://www.freshboxtech.co.bw" target="_blank" style="color: #999; text-decoration: none;">Freshbox Technologies</a></span></p>
           </div>
         </div>
       </div>
@@ -278,8 +576,6 @@
   <script src="js/bootstrap-datepicker.js"></script>
   <script src="js/jquery.timepicker.min.js"></script>
   <script src="js/scrollax.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-  <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
     
   </body>

@@ -26,12 +26,19 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
+    <!-- Favicons (32x32 primary) -->
+    <link rel="icon" type="image/png" href="images/favicon/favicon-32x32.png" sizes="32x32">
+    <link rel="shortcut icon" href="images/favicon/favicon-32x32.png">
+    <link rel="apple-touch-icon" href="images/favicon/apple-touch-icon.png" sizes="180x180">
+    <link rel="manifest" href="images/favicon/site.webmanifest">
+    <meta name="msapplication-TileImage" content="images/favicon/android-chrome-192x192.png">
+    <meta name="theme-color" content="#c05a1f">
   </head>
   <body>
     
   <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-      <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="Ditswammung SACCOS" style="height: 40px; margin-right: 10px;">Ditswammung SACCOS</a>
+      <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="Ditswammung SACCOS" style="height: 80px; margin-right: 15px;">Ditswammung SACCOS</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="oi oi-menu"></span> Menu
       </button>
@@ -40,19 +47,26 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
           <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-          <li class="nav-item"><a href="services.html" class="nav-link">Causes</a></li>
-          <li class="nav-item"><a href="membership.html" class="nav-link">Donate</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Services</a>
+            <div class="dropdown-menu" aria-labelledby="servicesDropdown">
+              <a class="dropdown-item" href="services.html">Core Services</a>
+              <a class="dropdown-item" href="pricing.html">Savings and Investments</a>
+              <a class="dropdown-item" href="loans.html">Loans</a>
+            </div>
+          </li>
+          <li class="nav-item"><a href="team.html" class="nav-link">Team</a></li>
+          <li class="nav-item"><a href="portfolio.html" class="nav-link">Portfolio</a></li>
           <li class="nav-item active"><a href="news.html" class="nav-link">Blog</a></li>
-          <li class="nav-item"><a href="portfolio.html" class="nav-link">Gallery</a></li>
-          <li class="nav-item"><a href="events.html" class="nav-link">Events</a></li>
           <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+          <li class="nav-item"><a href="https://coopmis.co.bw/Landing/Index/" class="btn btn-warning" style="background-color: #f86f2d; color: white; font-weight: bold; border: none; margin-left: 10px;" target="_blank">Members Login</a></li>
         </ul>
       </div>
     </div>
   </nav>
     <!-- END nav -->
     
-    <div class="hero-wrap" style="background-image: url('images/slide/slide-1.jpg');" data-stellar-background-ratio="0.5">
+    <div class="hero-wrap" style="background-image: url('images/slide/slide-2.jpg');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
@@ -104,7 +118,7 @@
             <div class="ftco-footer-widget mb-4">
               <h2 class="ftco-heading-2">Latest News</h2>
               <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url(images/slide/slide-1.jpg);"></a>
+                <a class="blog-img mr-4" style="background-image: url(images/img2/IMG_0249.JPG);"></a>
                 <div class="text">
                   <h3 class="heading"><a href="#">Member Success Stories: Building Futures Together</a></h3>
                   <div class="meta">
@@ -115,7 +129,7 @@
                 </div>
               </div>
               <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url(images/slide/slide-2.jpg);"></a>
+                <a class="blog-img mr-4" style="background-image: url(images/img2/20220917_060430.jpg);"></a>
                 <div class="text">
                   <h3 class="heading"><a href="#">New Loan Products Designed for Your Needs</a></h3>
                   <div class="meta">
@@ -133,7 +147,7 @@
               <ul class="list-unstyled">
                 <li><a href="index.html" class="py-2 d-block">Home</a></li>
                 <li><a href="about.html" class="py-2 d-block">About Us</a></li>
-                <li><a href="membership.html" class="py-2 d-block">Membership</a></li>
+                <li><a href="loans.html" class="py-2 d-block">Loans</a></li>
                 <li><a href="services.html" class="py-2 d-block">Our Projects</a></li>
                 <li><a href="events.html" class="py-2 d-block">Events</a></li>
                 <li><a href="news.html" class="py-2 d-block">News</a></li>
@@ -143,21 +157,22 @@
           <div class="col-md-3">
             <div class="ftco-footer-widget mb-4">
             	<h2 class="ftco-heading-2">Contact Information</h2>
-            	<div class="block-23 mb-3">
-              	  <ul>
-              	    <li><span class="icon icon-map-marker"></span><span class="text">Plot No. 63016, DTCB<br>P/Bag 0074, Gaborone</span></li>
-              	    <li><a href="tel:+267364963940"><span class="icon icon-phone"></span><span class="text">Tel: (+267) 3649639 /40</span></a></li>
-              	    <li><a href="tel:+267395115 0"><span class="icon icon-phone"></span><span class="text">Fax: (+267) 3951150</span></a></li>
-              	    <li><a href="mailto:emasebu@dtcb.co.bw"><span class="icon icon-envelope"></span><span class="text">emasebu@dtcb.co.bw</span></a></li>
-              	  </ul>
-            	</div>
+              <div class="block-23 mb-3">
+                <ul>
+                  <li><span class="icon icon-map-marker"></span><span class="text">Office: Plot No. 63016, Block 8, Gaborone</span></li>
+                  <li><span class="icon icon-building"></span><span class="text">Diamond Trading Company Botswana (DTCB)</span></li>
+                  <li><a href="tel:+26736496340"><span class="icon icon-phone"></span><span class="text">Tel: (+267) 3649639 /40</span></a></li>
+                  <li><a href="tel:+2673951150"><span class="icon icon-phone"></span><span class="text">Fax: (+267) 3951150</span></a></li>
+                  <li><a href="mailto:info@ditswammungsaccos.org.bw"><span class="icon icon-envelope"></span><span class="text">info@ditswammungsaccos.org.bw</span></a></li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-md-12 text-center">
 
-            <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> Ditswammung SACCOS. All rights reserved | Empowering Communities Through Cooperative Excellence</p>
+            <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> Ditswammung SACCOS. All rights reserved | Ditswammung SACCOS - Let's grow your wealth</p>
           </div>
         </div>
       </div>
@@ -183,8 +198,6 @@
   <script src="js/bootstrap-datepicker.js"></script>
   <script src="js/jquery.timepicker.min.js"></script>
   <script src="js/scrollax.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-  <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
     
   </body>

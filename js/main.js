@@ -1,6 +1,8 @@
  AOS.init({
  	duration: 800,
- 	easing: 'slide'
+ 	easing: 'slide',
+ 	once: true,
+ 	offset: 120
  });
 
 (function($) {
@@ -27,13 +29,20 @@
 	};
 	fullHeight();
 
-	// loader
+
+	// loader: keep visible until window load, then fade out
 	var loader = function() {
-		setTimeout(function() { 
-			if($('#ftco-loader').length > 0) {
-				$('#ftco-loader').removeClass('show');
-			}
-		}, 1);
+		$(window).on('load', function(){
+			setTimeout(function() { 
+				if($('#ftco-loader').length > 0) {
+					$('#ftco-loader').addClass('fade-out');
+					setTimeout(function(){
+						$('#ftco-loader').removeClass('show fade-out');
+					}, 600);
+				}
+				if (window.AOS) { AOS.refresh(); }
+			}, 300);
+		});
 	};
 	loader();
 
@@ -281,6 +290,8 @@
 	});
 
 	$('#appointment_time').timepicker();
+
+		// Mission content is revealed on scroll via AOS; no toggle required.
 
 
 
